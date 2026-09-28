@@ -6,10 +6,10 @@
     "up": false
   },
   "Bambi DayCare": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "C2N": {
     "reason": "HTTP 403 Forbidden",
@@ -18,16 +18,16 @@
     "up": false
   },
   "CGP": {
-    "reason": "HTTP 202 in 0.3s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Camille FLM": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Castle Chambers": {
     "reason": "HTTP 403 Forbidden",
@@ -42,10 +42,10 @@
     "up": false
   },
   "Chef Marciano": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Dippin' Delights": {
     "reason": "HTTP 403 Forbidden",
@@ -72,10 +72,10 @@
     "up": false
   },
   "Gladiator": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Glamma_Voice_Equity_Institute": {
     "reason": "HTTP 202 in 0.3s",
@@ -96,19 +96,19 @@
     "up": false
   },
   "Huney Bees Studio": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Jada Aura Sculpture": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Jesawna_RYN\u00c8A": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -126,10 +126,10 @@
     "up": false
   },
   "Maurissa Edible Queen": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Mobby's Phillycheesesteak": {
     "reason": "HTTP 403 Forbidden",
@@ -156,16 +156,16 @@
     "up": true
   },
   "Nahkyla_Krownkutz": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Noah Homecare Services": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Nyce Styles By Anya": {
     "reason": "HTTP 403 Forbidden",
@@ -174,7 +174,7 @@
     "up": false
   },
   "OTB": {
-    "reason": "HTTP 200 in 3.5s",
+    "reason": "HTTP 200 in 26.2s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -186,16 +186,16 @@
     "up": true
   },
   "Shanna_hair by Shanna": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Shequilla Haircare _Crowned By Qui_": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-28 14:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-28 15:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Society Stays Collection": {
     "reason": "HTTP 403 Forbidden",
