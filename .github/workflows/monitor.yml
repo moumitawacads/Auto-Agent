@@ -1,0 +1,44 @@
+name: Site Monitor
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"      # every 5 minutes (use "*/30 * * * *" for a private repo)
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: "Only send a test email"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write              # needed to save state.json back to the repo
+
+concurrency:
+  group: site-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run monitor
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          ALERT_EMAILS: ${{ secrets.ALERT_EMAILS }}
+          TEST_EMAIL: ${{ inputs.test_email }}
+        run: python3 monitor.py
+
+      - name: Save state
+        if: ${{ !inputs.test_email }}
+        run: |
+          git config user.name "site-monitor-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          git diff --cached --quiet || (git commit -m "Update monitor state [skip ci]" && git push)
