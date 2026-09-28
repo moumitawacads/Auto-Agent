@@ -1,0 +1,6 @@
+{
+  "sites": [
+    { "name": "My First Site",  "url": "https://example.com",  "keyword": "Example" },
+    { "name": "My Second Site", "url": "https://example.org",  "keyword": "" }
+  ]
+}
