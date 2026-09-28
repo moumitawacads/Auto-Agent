@@ -1,0 +1,15 @@
+{
+  "Bambi DayCare": {
+    "reason": "HTTP 202 in 0.1s",
+    "since": "2026-09-28 08:03 UTC",
+    "ssl_warned": false,
+    "up": true
+  },
+  "My Second Site": {
+    "reason": "HTTP 200 in 0.1s",
+    "since": "2026-09-28 08:03 UTC",
+    "ssl_warned": false,
+    "up": true
+  },
+  "_heartbeat": "2026-09-28"
+}
