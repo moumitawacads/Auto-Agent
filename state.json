@@ -162,7 +162,7 @@
     "up": true
   },
   "Noah Homecare Services": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-09-29 02:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -174,7 +174,7 @@
     "up": false
   },
   "OTB": {
-    "reason": "HTTP 200 in 4.5s",
+    "reason": "HTTP 200 in 3.5s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
