@@ -12,19 +12,19 @@
     "up": true
   },
   "C2N": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.3s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "CGP": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-29 20:01 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Camille FLM": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-29 20:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -36,10 +36,10 @@
     "up": false
   },
   "Cedar Stillroom": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.2s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Chef Marciano": {
     "reason": "HTTP 202 in 0.2s",
@@ -54,10 +54,10 @@
     "up": false
   },
   "E\u2019s Kitchen": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.1s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "FL Employment": {
     "reason": "HTTP 403 Forbidden",
@@ -72,22 +72,22 @@
     "up": false
   },
   "Gladiator": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 20:01 UTC",
-    "ssl_warned": false,
-    "up": true
-  },
-  "Glamma_Voice_Equity_Institute": {
     "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-29 20:01 UTC",
     "ssl_warned": false,
     "up": true
   },
-  "Glossy & Grace": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+  "Glamma_Voice_Equity_Institute": {
+    "reason": "HTTP 202 in 0.2s",
+    "since": "2026-09-29 20:01 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
+  },
+  "Glossy & Grace": {
+    "reason": "HTTP 202 in 0.2s",
+    "since": "2026-09-29 22:02 UTC",
+    "ssl_warned": false,
+    "up": true
   },
   "H2H Logistics": {
     "reason": "HTTP 403 Forbidden",
@@ -120,10 +120,10 @@
     "up": false
   },
   "Massiahs Helping Hands": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.2s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Maurissa Edible Queen": {
     "reason": "HTTP 202 in 0.2s",
@@ -168,13 +168,13 @@
     "up": true
   },
   "Nyce Styles By Anya": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.2s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "OTB": {
-    "reason": "HTTP 200 in 3.9s",
+    "reason": "HTTP 200 in 3.7s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -186,7 +186,7 @@
     "up": true
   },
   "Shanna_hair by Shanna": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-29 20:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -198,28 +198,28 @@
     "up": true
   },
   "Society Stays Collection": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.1s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Squeeaky Clean": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.4s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Suds & Socials": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.4s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Union Transfer": {
-    "reason": "HTTP 403 Forbidden",
-    "since": "2026-09-29 21:03 UTC",
+    "reason": "HTTP 202 in 0.2s",
+    "since": "2026-09-29 22:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "_heartbeat": "2026-09-29"
 }
