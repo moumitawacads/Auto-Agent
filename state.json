@@ -6,28 +6,28 @@
     "up": false
   },
   "Bambi DayCare": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "C2N": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "CGP": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Camille FLM": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Castle Chambers": {
     "reason": "HTTP 403 Forbidden",
@@ -36,16 +36,16 @@
     "up": false
   },
   "Cedar Stillroom": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Chef Marciano": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Dippin' Delights": {
     "reason": "HTTP 403 Forbidden",
@@ -54,10 +54,10 @@
     "up": false
   },
   "E\u2019s Kitchen": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "FL Employment": {
     "reason": "HTTP 403 Forbidden",
@@ -72,22 +72,22 @@
     "up": false
   },
   "Gladiator": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Glamma_Voice_Equity_Institute": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 13:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Glossy & Grace": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "H2H Logistics": {
     "reason": "HTTP 403 Forbidden",
@@ -96,22 +96,22 @@
     "up": false
   },
   "Huney Bees Studio": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 13:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Jada Aura Sculpture": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Jesawna_RYN\u00c8A": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 13:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "LexFit": {
     "reason": "HTTP 403 Forbidden",
@@ -120,16 +120,16 @@
     "up": false
   },
   "Massiahs Helping Hands": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Maurissa Edible Queen": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Mobby's Phillycheesesteak": {
     "reason": "HTTP 403 Forbidden",
@@ -156,70 +156,70 @@
     "up": true
   },
   "Nahkyla_Krownkutz": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 13:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Noah Homecare Services": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Nyce Styles By Anya": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "OTB": {
-    "reason": "HTTP 200 in 3.6s",
+    "reason": "HTTP 200 in 3.8s",
     "since": "2026-09-28 14:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Pro Landscaping": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 13:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Shanna_hair by Shanna": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Shequilla Haircare _Crowned By Qui_": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Society Stays Collection": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Squeeaky Clean": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Suds & Socials": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Union Transfer": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-09-29 17:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-29 18:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "_heartbeat": "2026-09-29"
 }
