@@ -1,12 +1,12 @@
 {
   "Aristro Print Global": {
-    "reason": "HTTP 202 in 0.4s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Bambi DayCare": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -18,7 +18,7 @@
     "up": true
   },
   "CGP": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -30,13 +30,13 @@
     "up": true
   },
   "Castle Chambers": {
-    "reason": "HTTP 202 in 0.3s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Cedar Stillroom": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -48,10 +48,10 @@
     "up": true
   },
   "Dippin' Delights": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "E\u2019s Kitchen": {
     "reason": "HTTP 202 in 0.1s",
@@ -60,19 +60,19 @@
     "up": true
   },
   "FL Employment": {
-    "reason": "HTTP 202 in 0.3s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "G1gGl3z": {
-    "reason": "HTTP 202 in 0.3s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Gladiator": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -90,13 +90,13 @@
     "up": true
   },
   "H2H Logistics": {
-    "reason": "HTTP 202 in 0.3s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Huney Bees Studio": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-29 20:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -108,19 +108,19 @@
     "up": true
   },
   "Jesawna_RYN\u00c8A": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-29 20:01 UTC",
     "ssl_warned": false,
     "up": true
   },
   "LexFit": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Massiahs Helping Hands": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -132,22 +132,22 @@
     "up": true
   },
   "Mobby's Phillycheesesteak": {
-    "reason": "HTTP 202 in 0.4s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Mr. Fixture": {
-    "reason": "HTTP 202 in 0.3s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Ms. Garden & Co.": {
-    "reason": "HTTP 202 in 0.3s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "My Second Site": {
     "reason": "HTTP 200 in 0.1s",
@@ -156,7 +156,7 @@
     "up": true
   },
   "Nahkyla_Krownkutz": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-29 20:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -174,10 +174,10 @@
     "up": true
   },
   "OTB": {
-    "reason": "Timed out after 20s",
-    "since": "2026-09-30 04:02 UTC",
+    "reason": "HTTP 200 in 3.4s",
+    "since": "2026-09-30 05:02 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Pro Landscaping": {
     "reason": "HTTP 202 in 0.2s",
@@ -192,31 +192,31 @@
     "up": true
   },
   "Shequilla Haircare _Crowned By Qui_": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Society Stays Collection": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Squeeaky Clean": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Suds & Socials": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Union Transfer": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-09-30 04:02 UTC",
     "ssl_warned": false,
     "up": true
