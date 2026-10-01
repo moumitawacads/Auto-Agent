@@ -78,7 +78,7 @@
     "up": false
   },
   "Glamma_Voice_Equity_Institute": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.4s",
     "since": "2026-10-01 08:06 UTC",
     "ssl_warned": false,
     "up": true
@@ -96,7 +96,7 @@
     "up": false
   },
   "Huney Bees Studio": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-01 08:06 UTC",
     "ssl_warned": false,
     "up": true
@@ -108,7 +108,7 @@
     "up": false
   },
   "Jesawna_RYN\u00c8A": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-01 08:06 UTC",
     "ssl_warned": false,
     "up": true
@@ -156,7 +156,7 @@
     "up": true
   },
   "Nahkyla_Krownkutz": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-01 08:06 UTC",
     "ssl_warned": false,
     "up": true
@@ -174,13 +174,13 @@
     "up": false
   },
   "OTB": {
-    "reason": "HTTP 200 in 3.7s",
+    "reason": "HTTP 200 in 3.8s",
     "since": "2026-10-01 05:04 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Pro Landscaping": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-01 08:06 UTC",
     "ssl_warned": false,
     "up": true
