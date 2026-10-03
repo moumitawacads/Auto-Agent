@@ -1,12 +1,12 @@
 {
   "Aristro Print Global": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Bambi DayCare": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -18,7 +18,7 @@
     "up": true
   },
   "CGP": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -66,7 +66,7 @@
     "up": true
   },
   "G1gGl3z": {
-    "reason": "HTTP 202 in 0.4s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -90,7 +90,7 @@
     "up": true
   },
   "H2H Logistics": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -108,7 +108,7 @@
     "up": true
   },
   "Jesawna_RYN\u00c8A": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -156,7 +156,7 @@
     "up": true
   },
   "Nahkyla_Krownkutz": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -174,7 +174,7 @@
     "up": true
   },
   "OTB": {
-    "reason": "HTTP 200 in 3.7s",
+    "reason": "HTTP 200 in 3.3s",
     "since": "2026-10-02 20:52 UTC",
     "ssl_warned": false,
     "up": true
@@ -210,7 +210,7 @@
     "up": true
   },
   "Suds & Socials": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-03 07:01 UTC",
     "ssl_warned": false,
     "up": true
