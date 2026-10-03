@@ -78,10 +78,10 @@
     "up": false
   },
   "Glamma_Voice_Equity_Institute": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-10-03 20:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-10-03 21:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Glossy & Grace": {
     "reason": "HTTP 403 Forbidden",
@@ -96,7 +96,7 @@
     "up": false
   },
   "Huney Bees Studio": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 1.1s",
     "since": "2026-10-03 20:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -108,7 +108,7 @@
     "up": false
   },
   "Jesawna_RYN\u00c8A": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 1.2s",
     "since": "2026-10-03 20:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -156,10 +156,10 @@
     "up": true
   },
   "Nahkyla_Krownkutz": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-10-03 20:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-10-03 21:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Noah Homecare Services": {
     "reason": "HTTP 403 Forbidden",
@@ -180,10 +180,10 @@
     "up": true
   },
   "Pro Landscaping": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-10-03 20:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-10-03 21:04 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Shanna_hair by Shanna": {
     "reason": "HTTP 403 Forbidden",
