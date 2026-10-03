@@ -18,10 +18,10 @@
     "up": false
   },
   "CGP": {
-    "reason": "HTTP 202 in 0.1s",
-    "since": "2026-10-03 15:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-10-03 16:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Camille FLM": {
     "reason": "HTTP 403 Forbidden",
@@ -72,10 +72,10 @@
     "up": false
   },
   "Gladiator": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-10-03 15:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-10-03 16:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Glamma_Voice_Equity_Institute": {
     "reason": "HTTP 202 in 0.2s",
@@ -96,7 +96,7 @@
     "up": false
   },
   "Huney Bees Studio": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-03 15:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -174,22 +174,22 @@
     "up": false
   },
   "OTB": {
-    "reason": "Timed out after 20s",
-    "since": "2026-10-03 15:03 UTC",
+    "reason": "HTTP 200 in 3.4s",
+    "since": "2026-10-03 16:03 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Pro Landscaping": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-03 15:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Shanna_hair by Shanna": {
-    "reason": "HTTP 202 in 0.2s",
-    "since": "2026-10-03 15:03 UTC",
+    "reason": "HTTP 403 Forbidden",
+    "since": "2026-10-03 16:03 UTC",
     "ssl_warned": false,
-    "up": true
+    "up": false
   },
   "Shequilla Haircare _Crowned By Qui_": {
     "reason": "HTTP 403 Forbidden",
