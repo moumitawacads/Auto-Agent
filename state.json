@@ -84,7 +84,7 @@
     "up": true
   },
   "Glossy & Grace": {
-    "reason": "HTTP 202 in 0.4s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-03 01:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -174,7 +174,7 @@
     "up": true
   },
   "OTB": {
-    "reason": "HTTP 200 in 0.5s",
+    "reason": "HTTP 200 in 3.8s",
     "since": "2026-10-02 20:52 UTC",
     "ssl_warned": false,
     "up": true
@@ -186,7 +186,7 @@
     "up": true
   },
   "Shanna_hair by Shanna": {
-    "reason": "HTTP 202 in 0.6s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-03 01:01 UTC",
     "ssl_warned": false,
     "up": true
