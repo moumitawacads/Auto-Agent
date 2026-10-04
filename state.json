@@ -18,7 +18,7 @@
     "up": true
   },
   "CGP": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 15:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -30,7 +30,7 @@
     "up": true
   },
   "Castle Chambers": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-04 15:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -78,7 +78,7 @@
     "up": true
   },
   "Glamma_Voice_Equity_Institute": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 10:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -90,19 +90,19 @@
     "up": true
   },
   "H2H Logistics": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-04 15:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Huney Bees Studio": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 12:01 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Jada Aura Sculpture": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 15:03 UTC",
     "ssl_warned": false,
     "up": true
@@ -162,25 +162,25 @@
     "up": true
   },
   "Noah Homecare Services": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 15:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Nyce Styles By Anya": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 15:03 UTC",
     "ssl_warned": false,
     "up": true
   },
   "OTB": {
-    "reason": "Connection failed: _ssl.c:983: The handshake operation timed out",
-    "since": "2026-10-04 15:03 UTC",
+    "reason": "HTTP 200 in 3.7s",
+    "since": "2026-10-04 15:30 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Pro Landscaping": {
-    "reason": "HTTP 202 in 0.1s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 10:02 UTC",
     "ssl_warned": false,
     "up": true
@@ -198,7 +198,7 @@
     "up": true
   },
   "Society Stays Collection": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-04 15:03 UTC",
     "ssl_warned": false,
     "up": true
