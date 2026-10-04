@@ -174,10 +174,10 @@
     "up": false
   },
   "OTB": {
-    "reason": "Connection failed: _ssl.c:983: The handshake operation timed out",
-    "since": "2026-10-04 20:03 UTC",
+    "reason": "HTTP 200 in 3.5s",
+    "since": "2026-10-04 21:04 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Pro Landscaping": {
     "reason": "HTTP 403 Forbidden",
