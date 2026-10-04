@@ -174,10 +174,10 @@
     "up": false
   },
   "OTB": {
-    "reason": "Timed out after 20s",
-    "since": "2026-10-04 04:41 UTC",
+    "reason": "HTTP 200 in 2.6s",
+    "since": "2026-10-04 05:04 UTC",
     "ssl_warned": false,
-    "up": false
+    "up": true
   },
   "Pro Landscaping": {
     "reason": "HTTP 403 Forbidden",
