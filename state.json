@@ -6,7 +6,7 @@
     "up": true
   },
   "Bambi DayCare": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-04 12:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -132,7 +132,7 @@
     "up": true
   },
   "Mobby's Phillycheesesteak": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-04 12:01 UTC",
     "ssl_warned": false,
     "up": true
@@ -162,7 +162,7 @@
     "up": true
   },
   "Noah Homecare Services": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.1s",
     "since": "2026-10-04 12:01 UTC",
     "ssl_warned": false,
     "up": true
