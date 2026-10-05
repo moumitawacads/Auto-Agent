@@ -108,7 +108,7 @@ def send_email(subject, body):
     if not (host and user and password and recipients):
         print("!! Email settings missing (check repository secrets). Not sending.")
         print(subject, "\n", body)
-        return False
+        sys.exit(1)
 
     msg = EmailMessage()
     msg["Subject"] = subject
