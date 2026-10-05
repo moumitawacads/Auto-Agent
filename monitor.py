@@ -5,8 +5,7 @@ Website uptime monitor for GitHub Actions (Python standard library only).
 What it does
   - Checks every site in sites.json: HTTP status, error pages (WordPress/PHP/
     suspended), blank pages, broken CSS/JS files, and an optional keyword
-  - Retries before counting a failure, and needs FAIL_THRESHOLD failed runs
-    in a row before sending a DOWN alert (avoids false alarms)
+  - Retries a failing site before counting it as down (avoids false alarms)
   - Treats firewall / bot-protection blocks (401/403/429, Cloudflare challenge)
     as "BLOCKED", not "DOWN", because the server did answer
   - If most sites fail at the same moment, sends ONE "monitor problem" email
@@ -47,7 +46,8 @@ TIMEOUT = 15              # seconds per request
 RETRIES = 3               # attempts per run before a check counts as failed
 RETRY_DELAY = 10          # seconds between attempts
 MAX_WORKERS = 16          # sites checked in parallel
-FAIL_THRESHOLD = 2        # failed runs in a row before a DOWN email is sent
+FAIL_THRESHOLD = 1        # failed runs in a row before a DOWN email (1 = alert immediately;
+                          # each run already retries a failing site RETRIES times)
 SSL_WARN_DAYS = 14        # warn when certificate expires within this many days
 MAX_BODY = 2_000_000      # bytes of the page to read
 MIN_VISIBLE_TEXT = 30     # fewer visible characters than this = "blank page"
@@ -475,6 +475,7 @@ def main():
 
     # ---- Normal run: work out who went down / recovered
     went_down, recovered = [], []   # (name, entry, text)
+    notes = []                      # explains every email decision in the log
     for site, status, reason in results:
         name = site["name"]
         entry = state.get(name)
@@ -495,12 +496,25 @@ def main():
                     f"  Now: {reason}"))
         else:
             entry["fails"] = entry.get("fails", 0) + 1
-            if entry.get("up", True) and entry["fails"] >= FAIL_THRESHOLD:
+            if not entry.get("up", True):
+                notes.append(f"{name}: still down (alert already sent at {entry.get('since')}); "
+                             "you will get a RECOVERED email when it is back")
+            elif entry["fails"] >= FAIL_THRESHOLD:
                 went_down.append((name, entry,
                     f"- {name} ({site['url']})\n  Reason: {reason}"))
+            else:
+                notes.append(f"{name}: failed {entry['fails']}/{FAIL_THRESHOLD} runs; "
+                             "DOWN email will be sent if it is still down next run")
         state[name] = entry
 
+    print("\n--- Emails ---")
+    for n in notes:
+        print(n)
+    if not (went_down or recovered):
+        print("No DOWN/RECOVERED email needed this run.")
+
     if went_down:
+        print("Sending DOWN email for: " + ", ".join(n for n, _, _ in went_down))
         ok = send_email(
             f"[DOWN] {len(went_down)} site(s) not responding",
             f"Detected at {now_str()}\n\n" + "\n\n".join(t for _, _, t in went_down) +
@@ -512,6 +526,7 @@ def main():
             email_failed = True
 
     if recovered:
+        print("Sending RECOVERED email for: " + ", ".join(n for n, _, _ in recovered))
         ok = send_email(
             f"[RECOVERED] {len(recovered)} site(s) back online",
             f"Detected at {now_str()}\n\n" + "\n\n".join(t for _, _, t in recovered))
