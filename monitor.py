@@ -3,7 +3,8 @@
 Website uptime monitor for GitHub Actions (Python standard library only).
 
 What it does
-  - Checks every site in sites.json (HTTP status, optional keyword, error pages)
+  - Checks every site in sites.json: HTTP status, error pages (WordPress/PHP/
+    suspended), blank pages, broken CSS/JS files, and an optional keyword
   - Retries before counting a failure, and needs FAIL_THRESHOLD failed runs
     in a row before sending a DOWN alert (avoids false alarms)
   - Treats firewall / bot-protection blocks (401/403/429, Cloudflare challenge)
@@ -19,6 +20,8 @@ sites.json options per site:
   "url"             address to check (required)
   "keyword"         text that must appear on the page (optional, recommended)
   "blocked_is_down" true = treat a firewall block (403 etc.) as DOWN (optional)
+  "check_assets"    false = don't check the page's CSS/JS files (optional)
+  "allow_blank"     true = don't flag pages with very little text (optional)
 """
 import json
 import os
@@ -33,7 +36,8 @@ import zlib
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from email.message import EmailMessage
-from urllib.parse import urlparse
+from html.parser import HTMLParser
+from urllib.parse import urljoin, urlparse
 
 # ----------------------------------------------------------------- settings
 CONFIG_FILE = "sites.json"
@@ -45,7 +49,11 @@ RETRY_DELAY = 10          # seconds between attempts
 MAX_WORKERS = 16          # sites checked in parallel
 FAIL_THRESHOLD = 2        # failed runs in a row before a DOWN email is sent
 SSL_WARN_DAYS = 14        # warn when certificate expires within this many days
-MAX_BODY = 500_000        # bytes of the page to read
+MAX_BODY = 2_000_000      # bytes of the page to read
+MIN_VISIBLE_TEXT = 30     # fewer visible characters than this = "blank page"
+CHECK_ASSETS = True       # also check the page's own CSS/JS files (per-site "check_assets" overrides)
+MAX_ASSETS = 25           # max CSS/JS files checked per site
+ASSET_TIMEOUT = 10        # seconds per CSS/JS file
 
 MASS_FAILURE_RATIO = 0.6  # if this share of sites is down at once...
 MASS_FAILURE_MIN_SITES = 5  # ...(and at least this many sites exist), suspect the monitor
@@ -73,6 +81,10 @@ ERROR_MARKERS = [
     "This domain has expired",
     "This domain name has expired",
     "Website is no longer available",
+    "<b>Fatal error</b>:",
+    "<b>Parse error</b>:",
+    "PHP Fatal error",
+    "Fatal error: Uncaught",
 ]
 
 UP, DOWN, BLOCKED = "UP", "DOWN", "BLOCKED"
@@ -126,14 +138,105 @@ def find_error_marker(body):
     return None
 
 
+class PageParser(HTMLParser):
+    """Collects the visible text and the CSS/JS files a page needs."""
+    HIDDEN = {"script", "style", "noscript", "template", "title"}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.text, self.assets, self._hidden = [], [], 0
+
+    def handle_starttag(self, tag, attrs):
+        a = {k: (v or "") for k, v in attrs}
+        if tag == "script" and a.get("src"):
+            self.assets.append(("JS", a["src"]))
+        elif tag == "link" and "stylesheet" in a.get("rel", "").lower().split() and a.get("href"):
+            self.assets.append(("CSS", a["href"]))
+        if tag in self.HIDDEN:
+            self._hidden += 1
+
+    def handle_endtag(self, tag):
+        if tag in self.HIDDEN and self._hidden:
+            self._hidden -= 1
+
+    def handle_data(self, data):
+        if not self._hidden:
+            self.text.append(data)
+
+
+def parse_page(body):
+    parser = PageParser()
+    try:
+        parser.feed(body)
+        parser.close()
+    except Exception:
+        pass
+    visible = " ".join(" ".join(parser.text).split())
+    return visible, parser.assets
+
+
+def same_site(asset_url, page_url):
+    a = (urlparse(asset_url).hostname or "").lower()
+    p = (urlparse(page_url).hostname or "").lower()
+    base = p[4:] if p.startswith("www.") else p
+    return a == base or a.endswith("." + base)
+
+
+def check_asset(kind, url):
+    """Return None if the file loads fine, otherwise a short problem description."""
+    req = urllib.request.Request(url, headers={
+        "User-Agent": HEADERS["User-Agent"],
+        "Accept": "text/css,*/*;q=0.1" if kind == "CSS" else "*/*",
+        "Referer": url,
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=ASSET_TIMEOUT) as resp:
+            start = resp.read(512).lstrip().lower()
+    except urllib.error.HTTPError as e:
+        if e.code in BLOCKED_CODES:
+            return None          # firewall, not a broken file
+        return f"HTTP {e.code}"
+    except Exception as e:
+        reason = getattr(e, "reason", e)
+        return f"failed to load ({reason})"
+    if start.startswith((b"<!doctype", b"<html", b"<head", b"<body")):
+        return "server sent an HTML page instead of the file (probably an error page)"
+    return None
+
+
+def check_assets(page_url, assets):
+    """Check the page's own CSS/JS files. Returns a list of problems."""
+    urls, seen = [], set()
+    for kind, src in assets:
+        full = urljoin(page_url, src.strip())
+        if urlparse(full).scheme not in ("http", "https"):
+            continue
+        if not same_site(full, page_url) or full in seen:
+            continue                 # skip Google Fonts, analytics, CDNs...
+        seen.add(full)
+        urls.append((kind, full))
+    urls = urls[:MAX_ASSETS]
+    if not urls:
+        return []
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        results = list(pool.map(lambda ku: check_asset(*ku), urls))
+    problems = []
+    for (kind, full), problem in zip(urls, results):
+        if problem:
+            name = urlparse(full).path.rsplit("/", 1)[-1] or full
+            problems.append(f"{kind} file {name} -> {problem}")
+    return problems
+
+
 # ------------------------------------------------------------------- checks
 def check_once(site):
-    """Return (status, reason) for a single request."""
+    """Return (status, reason, page) for a single request. page is set when the HTML loaded."""
     req = urllib.request.Request(site["url"], headers=HEADERS)
     start = time.time()
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
             code = resp.status
+            final_url = resp.geturl()
             body = decode_body(resp.read(MAX_BODY), resp.headers.get("Content-Encoding"))
     except urllib.error.HTTPError as e:
         try:
@@ -142,43 +245,55 @@ def check_once(site):
             err_body = ""
         marker = find_error_marker(err_body)
         if marker:
-            return DOWN, f"HTTP {e.code}, error page: '{marker}'"
+            return DOWN, f"HTTP {e.code}, error page: '{marker}'", None
         challenge = (e.headers.get("cf-mitigated") or "").lower() == "challenge"
         if e.code in BLOCKED_CODES or challenge:
-            return BLOCKED, f"HTTP {e.code} {e.reason} (firewall/bot protection blocked the monitor)"
-        return DOWN, f"HTTP {e.code} {e.reason}"
+            return BLOCKED, f"HTTP {e.code} {e.reason} (firewall/bot protection blocked the monitor)", None
+        return DOWN, f"HTTP {e.code} {e.reason}", None
     except urllib.error.URLError as e:
         r = e.reason
         if isinstance(r, ssl.SSLCertVerificationError):
-            return DOWN, f"SSL certificate problem: {r.verify_message}"
+            return DOWN, f"SSL certificate problem: {r.verify_message}", None
         if isinstance(r, socket.gaierror):
-            return DOWN, "DNS lookup failed (domain does not resolve)"
+            return DOWN, "DNS lookup failed (domain does not resolve)", None
         if isinstance(r, (socket.timeout, TimeoutError)):
-            return DOWN, f"Timed out after {TIMEOUT}s"
+            return DOWN, f"Timed out after {TIMEOUT}s", None
         if isinstance(r, ConnectionRefusedError):
-            return DOWN, "Connection refused"
-        return DOWN, f"Connection failed: {r}"
+            return DOWN, "Connection refused", None
+        return DOWN, f"Connection failed: {r}", None
     except (socket.timeout, TimeoutError):
-        return DOWN, f"Timed out after {TIMEOUT}s"
+        return DOWN, f"Timed out after {TIMEOUT}s", None
     except Exception as e:
-        return DOWN, f"{type(e).__name__}: {e}"
+        return DOWN, f"{type(e).__name__}: {e}", None
 
     elapsed = time.time() - start
     marker = find_error_marker(body)
     if marker:
-        return DOWN, f"HTTP {code}, error page: '{marker}'"
+        return DOWN, f"HTTP {code}, error page: '{marker}'", None
 
     keyword = (site.get("keyword") or "").strip()
     if keyword and keyword.lower() not in body.lower():
-        return DOWN, f"HTTP {code}, but expected text '{keyword}' not found on page"
+        return DOWN, f"HTTP {code}, but expected text '{keyword}' not found on page", None
 
-    return UP, f"HTTP {code} in {elapsed:.1f}s"
+    visible, assets = parse_page(body)
+    if len(visible) < MIN_VISIBLE_TEXT and not site.get("allow_blank"):
+        return DOWN, (f"Blank page: HTTP {code} but almost no visible content "
+                      f"({len(visible)} characters of text, {len(body)} bytes)"), None
+
+    return UP, f"HTTP {code} in {elapsed:.1f}s", {"url": final_url, "assets": assets}
 
 
 def check_site(site):
     status, reason = DOWN, ""
     for attempt in range(1, RETRIES + 1):
-        status, reason = check_once(site)
+        status, reason, page = check_once(site)
+        if status == UP and page and site.get("check_assets", CHECK_ASSETS):
+            problems = check_assets(page["url"], page["assets"])
+            if problems:
+                status = DOWN
+                reason = (f"Page HTML loads ({reason}) but {len(problems)} required file(s) "
+                          f"are broken, so visitors may see a blank/broken page: "
+                          + "; ".join(problems[:5]))
         if status in (UP, BLOCKED):   # retrying a firewall block is pointless
             break
         if attempt < RETRIES:
