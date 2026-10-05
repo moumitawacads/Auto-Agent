@@ -41,7 +41,7 @@
   },
   "Camille FLM": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -139,7 +139,7 @@
   },
   "Glossy & Grace": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -159,7 +159,7 @@
   },
   "Huney Bees Studio": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -179,7 +179,7 @@
   },
   "Jesawna_RYNÈA": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -197,7 +197,7 @@
   },
   "Massiahs Helping Hands": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.4s",
+    "reason": "HTTP 200 in 0.5s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -207,7 +207,7 @@
   },
   "Maurissa Edible Queen": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -245,7 +245,7 @@
   },
   "Nahkyla_Krownkutz": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.3s",
+    "reason": "HTTP 200 in 0.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -275,7 +275,7 @@
   },
   "OTB": {
     "fails": 0,
-    "reason": "HTTP 200 in 3.4s",
+    "reason": "HTTP 200 in 3.9s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 64,
@@ -285,7 +285,7 @@
   },
   "Pro Landscaping": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.3s",
+    "reason": "HTTP 200 in 0.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
@@ -315,7 +315,7 @@
   },
   "Society Stays Collection": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.1s",
+    "reason": "HTTP 200 in 0.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_warned": false,
     "status": "UP",
@@ -343,7 +343,7 @@
   },
   "Union Transfer": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-05",
     "ssl_days_left": 77,
