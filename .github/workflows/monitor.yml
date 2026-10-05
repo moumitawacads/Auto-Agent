@@ -2,7 +2,7 @@ name: Site Monitor
 
 on:
   schedule:
-    - cron: "*/5 * * * *"      # every 5 minutes (use "*/30 * * * *" for a private repo)
+    - cron: "*/5 * * * *"      # every 5 minutes (use "*/30 * * * *" for a private repo to save minutes)
   workflow_dispatch:
     inputs:
       test_email:
@@ -20,7 +20,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
 
@@ -32,13 +32,27 @@ jobs:
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
           ALERT_EMAILS: ${{ secrets.ALERT_EMAILS }}
-          TEST_EMAIL: ${{ inputs.test_email }}
+          TEST_EMAIL: ${{ github.event_name == 'workflow_dispatch' && inputs.test_email }}
         run: python3 monitor.py
 
+      # Runs even if the monitor step failed (e.g. an email could not be sent),
+      # so state is never lost. Skipped for test-email runs.
       - name: Save state
-        if: ${{ !inputs.test_email }}
+        if: ${{ !cancelled() && !(github.event_name == 'workflow_dispatch' && inputs.test_email) }}
         run: |
           git config user.name "site-monitor-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state.json
-          git diff --cached --quiet || (git commit -m "Update monitor state [skip ci]" && git push)
+          if git diff --cached --quiet; then
+            echo "No state changes."
+            exit 0
+          fi
+          git commit -m "Update monitor state [skip ci]"
+          for attempt in 1 2 3; do
+            # -X theirs keeps OUR new state.json if the file changed remotely meanwhile
+            git pull --rebase -X theirs origin "${{ github.ref_name }}" && git push && exit 0
+            echo "Push failed (attempt $attempt), retrying..."
+            sleep 5
+          done
+          echo "Could not push state.json after 3 attempts"
+          exit 1
