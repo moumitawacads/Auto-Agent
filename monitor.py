@@ -8,11 +8,19 @@ What it does
   - Retries a failing site before counting it as down (avoids false alarms)
   - Treats firewall / bot-protection blocks (401/403/429, Cloudflare challenge)
     as "BLOCKED", not "DOWN", because the server did answer
-  - If most sites fail at the same moment, sends ONE "monitor problem" email
+  - If most sites fail at the same moment, sends ONE "monitor problem" alert
     instead of a flood of DOWN alerts (usually the runner's network is blocked)
-  - Sends one combined email for sites that go DOWN and one for RECOVERED
+  - Sends one combined alert for sites that go DOWN and one for RECOVERED
   - Warns once when an SSL certificate is close to expiry (checked daily)
-  - Saves state in state.json; a failed email is retried on the next run
+  - Alerts go to email AND Slack (whichever is configured)
+  - Optional: posts a summary of EVERY run to Slack (SLACK_EVERY_RUN=true)
+  - Saves state in state.json; a failed alert is retried on the next run
+
+Environment variables (GitHub repository secrets / variables)
+  Email : SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, MAIL_FROM, ALERT_EMAILS
+  Slack : SLACK_WEBHOOK_URL   Slack Incoming Webhook URL
+          SLACK_EVERY_RUN     "true" = post a summary to Slack on every run
+  Test  : TEST_EMAIL          "true" = send a test email + Slack message and exit
 
 sites.json options per site:
   "name"            display name (required, must be unique)
@@ -46,7 +54,7 @@ TIMEOUT = 15              # seconds per request
 RETRIES = 3               # attempts per run before a check counts as failed
 RETRY_DELAY = 10          # seconds between attempts
 MAX_WORKERS = 16          # sites checked in parallel
-FAIL_THRESHOLD = 1        # failed runs in a row before a DOWN email (1 = alert immediately;
+FAIL_THRESHOLD = 1        # failed runs in a row before a DOWN alert (1 = alert immediately;
                           # each run already retries a failing site RETRIES times)
 SSL_WARN_DAYS = 14        # warn when certificate expires within this many days
 MAX_BODY = 2_000_000      # bytes of the page to read
@@ -60,6 +68,14 @@ MASS_FAILURE_MIN_SITES = 5  # ...(and at least this many sites exist), suspect t
 
 BLOCKED_CODES = {401, 403, 429}
 BLOCKED_IS_DOWN_DEFAULT = False  # per-site "blocked_is_down" overrides this
+
+# Slack Incoming Webhook URL. Paste yours here, or leave empty to use the
+# SLACK_WEBHOOK_URL environment variable / GitHub secret instead.
+SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_EVERY_RUN = True    # True = post a summary to Slack on every run
+
+SLACK_TIMEOUT = 15        # seconds for the Slack webhook request
+SLACK_MAX_CHARS = 3500    # keep Slack messages readable (longer text is cut)
 
 HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -89,6 +105,7 @@ ERROR_MARKERS = [
 
 UP, DOWN, BLOCKED = "UP", "DOWN", "BLOCKED"
 TIME_FMT = "%Y-%m-%d %H:%M UTC"
+ICONS = {UP: "🟢", DOWN: "🔴", BLOCKED: "🟡"}
 
 
 # ------------------------------------------------------------------ helpers
@@ -355,6 +372,67 @@ def send_email(subject, body):
     return True
 
 
+# -------------------------------------------------------------------- slack
+def slack_escape(text):
+    """Slack treats & < > as control characters; escape them so error text shows as-is."""
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def send_slack(text):
+    """Post a message to Slack via an Incoming Webhook.
+    Returns True on success, False if not configured or on any problem (never crashes)."""
+    url = (os.environ.get("SLACK_WEBHOOK_URL") or SLACK_WEBHOOK_URL or "").strip()
+    if not url or "XXX/YYY/ZZZ" in url:
+        return False
+
+    if len(text) > SLACK_MAX_CHARS:
+        text = text[:SLACK_MAX_CHARS] + "\n… (truncated, see the GitHub Actions run for details)"
+
+    data = json.dumps({"text": text}).encode("utf-8")
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=SLACK_TIMEOUT) as resp:
+            ok = resp.status == 200
+    except urllib.error.HTTPError as e:
+        print(f"!! Slack failed (HTTP {e.code}: {e.read(200).decode('utf-8', 'ignore')})")
+        return False
+    except Exception as e:
+        print(f"!! Slack failed ({type(e).__name__}: {e})")
+        return False
+
+    print("Slack message sent" if ok else "!! Slack did not accept the message")
+    return ok
+
+
+def notify(subject, body):
+    """Send an alert by email and Slack.
+    Returns True if at least one channel delivered it (so the alert is not repeated)."""
+    email_ok = send_email(subject, body)
+    slack_ok = send_slack(f"*{slack_escape(subject)}*\n{slack_escape(body)}")
+    return email_ok or slack_ok
+
+
+def send_run_summary(rows, note=""):
+    """If SLACK_EVERY_RUN=true, post one summary message for this run."""
+    env = os.environ.get("SLACK_EVERY_RUN", "").strip().lower()
+    every_run = (env == "true") if env else SLACK_EVERY_RUN
+    if not every_run:
+        return
+    up_n = sum(1 for _, s, _ in rows if s == UP)
+    down_n = sum(1 for _, s, _ in rows if s == DOWN)
+    blocked_n = sum(1 for _, s, _ in rows if s == BLOCKED)
+    head = "✅" if down_n == 0 else "🚨"
+    lines = [f"{head} *Site monitor run* {now_str()}: "
+             f"{up_n} up, {down_n} down, {blocked_n} blocked"]
+    if note:
+        lines.append(f"⚠️ {slack_escape(note)}")
+    # Problems first, then the healthy sites
+    order = {DOWN: 0, BLOCKED: 1, UP: 2}
+    for name, status, reason in sorted(rows, key=lambda r: order[r[1]]):
+        lines.append(f"{ICONS[status]} {slack_escape(name)}: {slack_escape(reason)}")
+    send_slack("\n".join(lines))   # a failed summary is not retried
+
+
 # ------------------------------------------------------------------ storage
 def load_sites():
     try:
@@ -408,13 +486,12 @@ def write_github_summary(rows, note=""):
     path = os.environ.get("GITHUB_STEP_SUMMARY")
     if not path:
         return
-    icons = {UP: "🟢", DOWN: "🔴", BLOCKED: "🟡"}
     lines = ["## Site monitor results", ""]
     if note:
         lines += [f"> {note}", ""]
     lines += ["| | Site | Details |", "|---|---|---|"]
     for name, status, reason in rows:
-        lines.append(f"| {icons[status]} | {name} | {reason.replace('|', '/')} |")
+        lines.append(f"| {ICONS[status]} | {name} | {reason.replace('|', '/')} |")
     with open(path, "a", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
@@ -422,13 +499,16 @@ def write_github_summary(rows, note=""):
 # --------------------------------------------------------------------- main
 def main():
     if os.environ.get("TEST_EMAIL", "").lower() == "true":
-        ok = send_email("[Site Monitor] Test email",
-                        f"Your site monitor email settings work.\nSent at {now_str()}.")
-        sys.exit(0 if ok else 1)
+        msg = f"Your site monitor notification settings work.\nSent at {now_str()}."
+        email_ok = send_email("[Site Monitor] Test email", msg)
+        slack_ok = send_slack(f"*[Site Monitor] Test message*\n{msg}")
+        print(f"Test result: email={'OK' if email_ok else 'not sent'}, "
+              f"slack={'OK' if slack_ok else 'not sent'}")
+        sys.exit(0 if (email_ok or slack_ok) else 1)
 
     sites = load_sites()
     state = load_state()
-    email_failed = False
+    alert_failed = False
 
     # Forget sites that were removed from sites.json
     names = {s["name"] for s in sites}
@@ -455,7 +535,7 @@ def main():
         print(f"!! {note}")
         if not state.get("_mass_failure_warned"):
             sample = "\n".join(f"- {n}: {r}" for n, s, r in rows if s == DOWN)
-            if send_email(
+            if notify(
                 f"[MONITOR WARNING] {down_count} of {len(sites)} sites failed at once",
                 f"Detected at {now_str()}\n\n"
                 "Most of your sites failed at the same moment. This usually means one of:\n"
@@ -465,17 +545,18 @@ def main():
                 "Individual DOWN alerts are paused until this clears.\n\n" + sample):
                 state["_mass_failure_warned"] = True
             else:
-                email_failed = True
+                alert_failed = True
         write_github_summary(rows, note)
+        send_run_summary(rows, note)
         state["_heartbeat"] = today_str()
         save_state(state)
-        sys.exit(1 if email_failed else 0)
+        sys.exit(1 if alert_failed else 0)
 
     state.pop("_mass_failure_warned", None)
 
     # ---- Normal run: work out who went down / recovered
     went_down, recovered = [], []   # (name, entry, text)
-    notes = []                      # explains every email decision in the log
+    notes = []                      # explains every alert decision in the log
     for site, status, reason in results:
         name = site["name"]
         entry = state.get(name)
@@ -498,43 +579,43 @@ def main():
             entry["fails"] = entry.get("fails", 0) + 1
             if not entry.get("up", True):
                 notes.append(f"{name}: still down (alert already sent at {entry.get('since')}); "
-                             "you will get a RECOVERED email when it is back")
+                             "you will get a RECOVERED alert when it is back")
             elif entry["fails"] >= FAIL_THRESHOLD:
                 went_down.append((name, entry,
                     f"- {name} ({site['url']})\n  Reason: {reason}"))
             else:
                 notes.append(f"{name}: failed {entry['fails']}/{FAIL_THRESHOLD} runs; "
-                             "DOWN email will be sent if it is still down next run")
+                             "DOWN alert will be sent if it is still down next run")
         state[name] = entry
 
-    print("\n--- Emails ---")
+    print("\n--- Alerts ---")
     for n in notes:
         print(n)
     if not (went_down or recovered):
-        print("No DOWN/RECOVERED email needed this run.")
+        print("No DOWN/RECOVERED alert needed this run.")
 
     if went_down:
-        print("Sending DOWN email for: " + ", ".join(n for n, _, _ in went_down))
-        ok = send_email(
+        print("Sending DOWN alert for: " + ", ".join(n for n, _, _ in went_down))
+        ok = notify(
             f"[DOWN] {len(went_down)} site(s) not responding",
             f"Detected at {now_str()}\n\n" + "\n\n".join(t for _, _, t in went_down) +
-            "\n\nYou will get another email when they recover.")
+            "\n\nYou will get another alert when they recover.")
         if ok:
             for _, entry, _ in went_down:
                 entry.update(up=False, since=now_str())
         else:
-            email_failed = True
+            alert_failed = True
 
     if recovered:
-        print("Sending RECOVERED email for: " + ", ".join(n for n, _, _ in recovered))
-        ok = send_email(
+        print("Sending RECOVERED alert for: " + ", ".join(n for n, _, _ in recovered))
+        ok = notify(
             f"[RECOVERED] {len(recovered)} site(s) back online",
             f"Detected at {now_str()}\n\n" + "\n\n".join(t for _, _, t in recovered))
         if ok:
             for _, entry, _ in recovered:
                 entry.update(up=True, since=now_str())
         else:
-            email_failed = True
+            alert_failed = True
 
     # ---- SSL expiry: once a day per site, in parallel
     today = today_str()
@@ -558,21 +639,22 @@ def main():
             else:
                 entry["ssl_warned"] = False
         if ssl_warnings:
-            if send_email("[SSL WARNING] Certificate(s) expiring soon",
-                          "\n".join(t for _, t in ssl_warnings)):
+            if notify("[SSL WARNING] Certificate(s) expiring soon",
+                      "\n".join(t for _, t in ssl_warnings)):
                 for entry, _ in ssl_warnings:
                     entry["ssl_warned"] = True
             else:
-                email_failed = True
+                alert_failed = True
 
     up_n = sum(1 for _, s, _ in rows if s == UP)
     blocked_n = sum(1 for _, s, _ in rows if s == BLOCKED)
     print(f"\nSummary: {up_n} up, {down_count} down, {blocked_n} blocked by firewall")
 
     write_github_summary(rows)
+    send_run_summary(rows)
     state["_heartbeat"] = today      # daily commit keeps scheduled workflows active
     save_state(state)
-    sys.exit(1 if email_failed else 0)
+    sys.exit(1 if alert_failed else 0)
 
 
 if __name__ == "__main__":
