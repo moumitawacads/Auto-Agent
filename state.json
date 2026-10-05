@@ -24,7 +24,7 @@
     "up": true
   },
   "Camille FLM": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
@@ -60,7 +60,7 @@
     "up": true
   },
   "FL Employment": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.4s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
@@ -72,13 +72,13 @@
     "up": true
   },
   "Gladiator": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Glamma_Voice_Equity_Institute": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
@@ -102,7 +102,7 @@
     "up": true
   },
   "Jada Aura Sculpture": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
@@ -120,13 +120,13 @@
     "up": true
   },
   "Massiahs Helping Hands": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
   },
   "Maurissa Edible Queen": {
-    "reason": "HTTP 202 in 0.3s",
+    "reason": "HTTP 202 in 0.2s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
@@ -156,7 +156,7 @@
     "up": true
   },
   "Nahkyla_Krownkutz": {
-    "reason": "HTTP 202 in 0.2s",
+    "reason": "HTTP 202 in 0.3s",
     "since": "2026-10-04 21:58 UTC",
     "ssl_warned": false,
     "up": true
@@ -174,7 +174,7 @@
     "up": true
   },
   "OTB": {
-    "reason": "HTTP 200 in 0.4s",
+    "reason": "HTTP 200 in 3.4s",
     "since": "2026-10-04 21:04 UTC",
     "ssl_warned": false,
     "up": true
@@ -221,5 +221,5 @@
     "ssl_warned": false,
     "up": true
   },
-  "_heartbeat": "2026-10-04"
+  "_heartbeat": "2026-10-05"
 }
