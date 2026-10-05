@@ -71,7 +71,7 @@ BLOCKED_IS_DOWN_DEFAULT = False  # per-site "blocked_is_down" overrides this
 
 # Slack Incoming Webhook URL. Paste yours here, or leave empty to use the
 # SLACK_WEBHOOK_URL environment variable / GitHub secret instead.
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 SLACK_EVERY_RUN = True    # True = post a summary to Slack on every run
 
 SLACK_TIMEOUT = 15        # seconds for the Slack webhook request
