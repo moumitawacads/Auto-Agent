@@ -69,10 +69,10 @@ MASS_FAILURE_MIN_SITES = 5  # ...(and at least this many sites exist), suspect t
 BLOCKED_CODES = {401, 403, 429}
 BLOCKED_IS_DOWN_DEFAULT = False  # per-site "blocked_is_down" overrides this
 
-# Slack Incoming Webhook URL. Paste yours here, or leave empty to use the
-# SLACK_WEBHOOK_URL environment variable / GitHub secret instead.
+# Slack Incoming Webhook URL: keep this EMPTY and set the SLACK_WEBHOOK_URL
+# GitHub secret instead. A URL committed to a public repo is auto-revoked by Slack.
 SLACK_WEBHOOK_URL = ""
-SLACK_EVERY_RUN = True    # True = post a summary to Slack on every run
+SLACK_EVERY_RUN = True    # True = post a detailed status report to Slack after every run
 
 SLACK_TIMEOUT = 15        # seconds for the Slack webhook request
 SLACK_MAX_CHARS = 3500    # keep Slack messages readable (longer text is cut)
@@ -378,24 +378,71 @@ def slack_escape(text):
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def send_slack(text):
+def slack_url():
+    return (os.environ.get("SLACK_WEBHOOK_URL") or SLACK_WEBHOOK_URL or "").strip()
+
+
+def slack_config_report():
+    """Print once per run whether Slack is set up, so problems are visible in the log."""
+    url = slack_url()
+    if not url:
+        print("Slack: NOT configured. SLACK_WEBHOOK_URL is empty.\n"
+              "       Add the repository secret SLACK_WEBHOOK_URL and pass it in the workflow:\n"
+              "         env:\n"
+              "           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}")
+        return False
+    if not url.startswith("https://hooks.slack.com/"):
+        print(f"Slack: URL looks wrong (must start with https://hooks.slack.com/). "
+              f"It starts with: {url[:25]!r}")
+        return False
+    parts = url.rstrip("/").split("/")
+    masked = "/".join(parts[:-1]) + "/***" if len(parts) > 4 else "https://hooks.slack.com/***"
+    print(f"Slack: configured ({masked})")
+    return True
+
+
+def send_slack(text, blocks=None):
     """Post a message to Slack via an Incoming Webhook.
+    'text' is the plain fallback (notifications/previews); 'blocks' is the rich layout.
     Returns True on success, False if not configured or on any problem (never crashes)."""
-    url = (os.environ.get("SLACK_WEBHOOK_URL") or SLACK_WEBHOOK_URL or "").strip()
-    if not url or "XXX/YYY/ZZZ" in url:
+    url = slack_url()
+    if not url or not url.startswith("https://hooks.slack.com/"):
+        print("!! Slack message NOT sent (SLACK_WEBHOOK_URL missing or invalid)")
         return False
 
     if len(text) > SLACK_MAX_CHARS:
         text = text[:SLACK_MAX_CHARS] + "\n… (truncated, see the GitHub Actions run for details)"
 
-    data = json.dumps({"text": text}).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    try:
+    payload = {"text": text}
+    if blocks:
+        payload["blocks"] = blocks[:50]          # Slack limit: 50 blocks per message
+
+    def post(body):
+        req = urllib.request.Request(url, data=json.dumps(body).encode("utf-8"),
+                                     headers={"Content-Type": "application/json"})
         with urllib.request.urlopen(req, timeout=SLACK_TIMEOUT) as resp:
-            ok = resp.status == 200
+            return resp.status == 200
+
+    try:
+        ok = post(payload)
     except urllib.error.HTTPError as e:
-        print(f"!! Slack failed (HTTP {e.code}: {e.read(200).decode('utf-8', 'ignore')})")
-        return False
+        detail = e.read(300).decode("utf-8", "ignore")
+        if blocks and e.code == 400:
+            # Rich layout rejected: fall back to plain text so the report still arrives
+            print(f"!! Slack rejected the formatted report ({detail}); sending plain text")
+            try:
+                ok = post({"text": text})
+            except Exception as e2:
+                print(f"!! Slack failed ({type(e2).__name__}: {e2})")
+                return False
+        else:
+            hint = {
+                403: "webhook was revoked or the app was removed: create a new webhook",
+                404: "webhook does not exist (revoked/deleted): create a new webhook",
+                410: "channel was archived: create a webhook for another channel",
+            }.get(e.code, "")
+            print(f"!! Slack failed (HTTP {e.code}: {detail}){' -> ' + hint if hint else ''}")
+            return False
     except Exception as e:
         print(f"!! Slack failed ({type(e).__name__}: {e})")
         return False
@@ -412,25 +459,96 @@ def notify(subject, body):
     return email_ok or slack_ok
 
 
-def send_run_summary(rows, note=""):
-    """If SLACK_EVERY_RUN=true, post one summary message for this run."""
+def github_run_url():
+    server = os.environ.get("GITHUB_SERVER_URL")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    run_id = os.environ.get("GITHUB_RUN_ID")
+    return f"{server}/{repo}/actions/runs/{run_id}" if server and repo and run_id else ""
+
+
+def send_status_report(results, state, note=""):
+    """Post a detailed status report of this run to Slack (if SLACK_EVERY_RUN is on)."""
     env = os.environ.get("SLACK_EVERY_RUN", "").strip().lower()
-    every_run = (env == "true") if env else SLACK_EVERY_RUN
+    every_run = (env in ("true", "1", "yes")) if env else SLACK_EVERY_RUN
     if not every_run:
+        print("Slack status report skipped (SLACK_EVERY_RUN is off)")
         return
-    up_n = sum(1 for _, s, _ in rows if s == UP)
-    down_n = sum(1 for _, s, _ in rows if s == DOWN)
-    blocked_n = sum(1 for _, s, _ in rows if s == BLOCKED)
-    head = "✅" if down_n == 0 else "🚨"
-    lines = [f"{head} *Site monitor run* {now_str()}: "
-             f"{up_n} up, {down_n} down, {blocked_n} blocked"]
+
+    total = len(results)
+    up_n = sum(1 for _, s, _ in results if s == UP)
+    down_n = sum(1 for _, s, _ in results if s == DOWN)
+    blocked_n = sum(1 for _, s, _ in results if s == BLOCKED)
+
     if note:
-        lines.append(f"⚠️ {slack_escape(note)}")
-    # Problems first, then the healthy sites
+        title = f"⚠️ Monitor warning: {down_n} of {total} sites failed at once"
+    elif down_n:
+        title = f"🚨 {down_n} of {total} site(s) DOWN"
+    elif blocked_n:
+        title = f"🟡 All reachable: {up_n} up, {blocked_n} blocked by firewall"
+    else:
+        title = f"✅ All {total} sites up"
+
+    run_url = github_run_url()
+    context = f"Checked {now_str()}"
+    if run_url:
+        context += f"  •  <{run_url}|View run log>"
+
+    def site_line(site, status, reason):
+        name, url = slack_escape(site["name"]), site["url"]
+        entry = state.get(site["name"]) if isinstance(state.get(site["name"]), dict) else {}
+        line = f"{ICONS[status]} *<{url}|{name}>*  {slack_escape(reason)}"
+        extra = []
+        if status == DOWN and not entry.get("up", True) and entry.get("since"):
+            extra.append(f"down since {entry['since']} ({duration_since(entry['since'])})")
+        days = entry.get("ssl_days_left")
+        if isinstance(days, int):
+            extra.append(f"SSL {'⚠️ ' if days <= SSL_WARN_DAYS else ''}{days} days left")
+        if extra:
+            line += "\n      _" + "  •  ".join(extra) + "_"
+        return line
+
     order = {DOWN: 0, BLOCKED: 1, UP: 2}
-    for name, status, reason in sorted(rows, key=lambda r: order[r[1]]):
-        lines.append(f"{ICONS[status]} {slack_escape(name)}: {slack_escape(reason)}")
-    send_slack("\n".join(lines))   # a failed summary is not retried
+    groups = [
+        (DOWN, "*Down*"),
+        (BLOCKED, "*Blocked by firewall* (server answered, monitor was blocked)"),
+        (UP, "*Up*"),
+    ]
+    blocks = [
+        {"type": "header", "text": {"type": "plain_text", "text": title[:150], "emoji": True}},
+        {"type": "context", "elements": [{"type": "mrkdwn", "text": context}]},
+        {"type": "section", "fields": [
+            {"type": "mrkdwn", "text": f"*Total*\n{total}"},
+            {"type": "mrkdwn", "text": f"*🟢 Up*\n{up_n}"},
+            {"type": "mrkdwn", "text": f"*🔴 Down*\n{down_n}"},
+            {"type": "mrkdwn", "text": f"*🟡 Blocked*\n{blocked_n}"},
+        ]},
+    ]
+    if note:
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": f"⚠️ {slack_escape(note)}"}})
+
+    plain = [title, context.split("  •  ")[0], f"Up {up_n} / Down {down_n} / Blocked {blocked_n}"]
+    for status, heading in groups:
+        items = [site_line(*r) for r in sorted(results, key=lambda r: order[r[1]]) if r[1] == status]
+        if not items:
+            continue
+        blocks.append({"type": "divider"})
+        # Pack lines into sections of max ~2900 chars (Slack limit is 3000)
+        chunk = heading
+        for item in items:
+            if len(chunk) + len(item) + 1 > 2900:
+                blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": chunk}})
+                chunk = item
+            else:
+                chunk += "\n" + item
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": chunk}})
+        plain += [f"{ICONS[s]} {site['name']}: {r}" for site, s, r in results if s == status]
+
+    if len(blocks) > 50:
+        blocks = blocks[:49] + [{"type": "context", "elements": [{"type": "mrkdwn",
+                 "text": "Report shortened, open the run log for the full list."}]}]
+
+    print("Sending Slack status report...")
+    send_slack("\n".join(plain), blocks)   # a failed report is logged, not retried
 
 
 # ------------------------------------------------------------------ storage
@@ -498,6 +616,8 @@ def write_github_summary(rows, note=""):
 
 # --------------------------------------------------------------------- main
 def main():
+    slack_config_report()
+
     if os.environ.get("TEST_EMAIL", "").lower() == "true":
         msg = f"Your site monitor notification settings work.\nSent at {now_str()}."
         email_ok = send_email("[Site Monitor] Test email", msg)
@@ -547,7 +667,7 @@ def main():
             else:
                 alert_failed = True
         write_github_summary(rows, note)
-        send_run_summary(rows, note)
+        send_status_report(results, state, note)
         state["_heartbeat"] = today_str()
         save_state(state)
         sys.exit(1 if alert_failed else 0)
@@ -651,7 +771,7 @@ def main():
     print(f"\nSummary: {up_n} up, {down_count} down, {blocked_n} blocked by firewall")
 
     write_github_summary(rows)
-    send_run_summary(rows)
+    send_status_report(results, state)
     state["_heartbeat"] = today      # daily commit keeps scheduled workflows active
     save_state(state)
     sys.exit(1 if alert_failed else 0)
