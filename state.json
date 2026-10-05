@@ -174,7 +174,7 @@
     "up": false
   },
   "OTB": {
-    "reason": "HTTP 200 in 3.2s",
+    "reason": "HTTP 200 in 3.7s",
     "since": "2026-10-04 21:04 UTC",
     "ssl_warned": false,
     "up": true
