@@ -91,7 +91,7 @@
   },
   "E’s Kitchen": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 0.1s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_warned": false,
     "status": "UP",
@@ -99,7 +99,7 @@
   },
   "FL Employment": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.4s",
+    "reason": "HTTP 200 in 0.5s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-07",
     "ssl_days_left": 75,
@@ -235,7 +235,7 @@
   },
   "Ms. Garden & Co.": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.5s",
+    "reason": "HTTP 200 in 0.6s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-07",
     "ssl_days_left": 63,
@@ -265,7 +265,7 @@
   },
   "Nyce Styles By Anya": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.4s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-07",
     "ssl_days_left": 75,
@@ -343,7 +343,7 @@
   },
   "Union Transfer": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.4s",
+    "reason": "HTTP 200 in 0.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-07",
     "ssl_days_left": 75,
