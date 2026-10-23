@@ -1,7 +1,7 @@
 {
   "Aristro Print Global": {
     "fails": 0,
-    "reason": "HTTP 200 in 3.7s",
+    "reason": "HTTP 200 in 2.9s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -11,7 +11,7 @@
   },
   "Bambi DayCare": {
     "fails": 0,
-    "reason": "HTTP 200 in 2.2s",
+    "reason": "HTTP 200 in 1.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -21,7 +21,7 @@
   },
   "C2N": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.8s",
+    "reason": "HTTP 200 in 1.6s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -31,7 +31,7 @@
   },
   "CGP": {
     "fails": 0,
-    "reason": "HTTP 200 in 3.1s",
+    "reason": "HTTP 200 in 2.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -41,7 +41,7 @@
   },
   "Camille FLM": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.8s",
+    "reason": "HTTP 200 in 1.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -51,7 +51,7 @@
   },
   "Castle Chambers": {
     "fails": 0,
-    "reason": "HTTP 200 in 8.3s",
+    "reason": "HTTP 200 in 6.9s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -61,7 +61,7 @@
   },
   "Cedar Stillroom": {
     "fails": 0,
-    "reason": "HTTP 200 in 3.6s",
+    "reason": "HTTP 200 in 3.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -71,7 +71,7 @@
   },
   "Chef Marciano": {
     "fails": 0,
-    "reason": "HTTP 200 in 3.5s",
+    "reason": "HTTP 200 in 2.5s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -81,7 +81,7 @@
   },
   "Dippin' Delights": {
     "fails": 0,
-    "reason": "HTTP 200 in 6.1s",
+    "reason": "HTTP 200 in 5.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -91,53 +91,13 @@
   },
   "E’s Kitchen": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.9s",
+    "reason": "HTTP 200 in 2.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_warned": false,
     "status": "UP",
     "up": true
   },
   "FL Employment": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.3s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "G1gGl3z": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.5s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 47,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Gladiator": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Glamma_Voice_Equity_Institute": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.2s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Glossy & Grace": {
     "fails": 0,
     "reason": "HTTP 200 in 2.9s",
     "since": "2026-10-05 06:22 UTC",
@@ -147,9 +107,19 @@
     "status": "UP",
     "up": true
   },
-  "H2H Logistics": {
+  "G1gGl3z": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.9s",
+    "reason": "HTTP 200 in 3.1s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 47,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Gladiator": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -157,7 +127,17 @@
     "status": "UP",
     "up": true
   },
-  "Huney Bees Studio": {
+  "Glamma_Voice_Equity_Institute": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.5s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Glossy & Grace": {
     "fails": 0,
     "reason": "HTTP 200 in 2.3s",
     "since": "2026-10-05 06:22 UTC",
@@ -167,133 +147,7 @@
     "status": "UP",
     "up": true
   },
-  "Jada Aura Sculpture": {
-    "fails": 0,
-    "reason": "HTTP 200 in 1.7s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Jesawna_RYNÈA": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.2s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "LexFit": {
-    "fails": 0,
-    "reason": "HTTP 200 in 8.3s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Massiahs Helping Hands": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.8s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Maurissa Edible Queen": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.8s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Mobby's Phillycheesesteak": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.7s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 47,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Mr. Fixture": {
-    "fails": 0,
-    "reason": "HTTP 200 in 6.8s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Ms. Garden & Co.": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 47,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Nahkyla_Krownkutz": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Noah Homecare Services": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Nyce Styles By Anya": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "OTB": {
-    "fails": 0,
-    "reason": "HTTP 200 in 3.7s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 73,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Pro Landscaping": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-10-23",
-    "ssl_days_left": 59,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Shanna_hair by Shanna": {
+  "H2H Logistics": {
     "fails": 0,
     "reason": "HTTP 200 in 1.8s",
     "since": "2026-10-05 06:22 UTC",
@@ -303,7 +157,27 @@
     "status": "UP",
     "up": true
   },
-  "Shequilla Haircare _Crowned By Qui_": {
+  "Huney Bees Studio": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.4s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Jada Aura Sculpture": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.2s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Jesawna_RYNÈA": {
     "fails": 0,
     "reason": "HTTP 200 in 1.6s",
     "since": "2026-10-05 06:22 UTC",
@@ -313,9 +187,135 @@
     "status": "UP",
     "up": true
   },
-  "Society Stays Collection": {
+  "LexFit": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.4s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Massiahs Helping Hands": {
+    "fails": 0,
+    "reason": "HTTP 200 in 3.2s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Maurissa Edible Queen": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.3s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Mobby's Phillycheesesteak": {
+    "fails": 0,
+    "reason": "HTTP 200 in 3.2s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 47,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Mr. Fixture": {
+    "fails": 0,
+    "reason": "HTTP 200 in 5.8s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Ms. Garden & Co.": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.7s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 47,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Nahkyla_Krownkutz": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.5s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Noah Homecare Services": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.3s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Nyce Styles By Anya": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.3s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "OTB": {
+    "fails": 0,
+    "reason": "HTTP 200 in 3.1s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 73,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Pro Landscaping": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.2s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Shanna_hair by Shanna": {
     "fails": 0,
     "reason": "HTTP 200 in 2.0s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Shequilla Haircare _Crowned By Qui_": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.2s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-10-23",
+    "ssl_days_left": 59,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Society Stays Collection": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.5s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_warned": false,
     "status": "UP",
@@ -323,7 +323,7 @@
   },
   "Squeeaky Clean": {
     "fails": 0,
-    "reason": "HTTP 200 in 5.8s",
+    "reason": "HTTP 200 in 5.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
@@ -333,7 +333,7 @@
   },
   "Suds & Socials": {
     "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
+    "reason": "HTTP 200 in 2.1s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 47,
@@ -343,7 +343,7 @@
   },
   "Union Transfer": {
     "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
+    "reason": "HTTP 200 in 1.5s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-10-23",
     "ssl_days_left": 59,
