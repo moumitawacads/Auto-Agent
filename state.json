@@ -1,7 +1,7 @@
 {
   "Aristro Print Global": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.1s",
+    "reason": "HTTP 200 in 2.8s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -10,18 +10,18 @@
     "up": true
   },
   "Bambi DayCare": {
-    "fails": 1,
-    "reason": "Page HTML loads (HTTP 200 in 0.7s) but 2 required file(s) are broken, so visitors may see a blank/broken page: CSS file style.css -> server sent an HTML page instead of the file (probably an error page); JS file script.js -> server sent an HTML page instead of the file (probably an error page)",
+    "fails": 0,
+    "reason": "HTTP 200 in 0.7s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
     "ssl_warned": false,
-    "status": "DOWN",
+    "status": "UP",
     "up": true
   },
   "C2N": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.3s",
+    "reason": "HTTP 200 in 1.8s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -31,7 +31,7 @@
   },
   "CGP": {
     "fails": 0,
-    "reason": "HTTP 200 in 2.1s",
+    "reason": "HTTP 200 in 2.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -41,7 +41,7 @@
   },
   "Camille FLM": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.1s",
+    "reason": "HTTP 200 in 1.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -51,7 +51,7 @@
   },
   "Castle Chambers": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.3s",
+    "reason": "HTTP 200 in 7.6s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -60,142 +60,6 @@
     "up": true
   },
   "Cedar Stillroom": {
-    "fails": 1,
-    "reason": "Page HTML loads (HTTP 200 in 2.3s) but 3 required file(s) are broken, so visitors may see a blank/broken page: JS file add-to-cart.min.js -> server sent an HTML page instead of the file (probably an error page); JS file js.cookie.min.js -> server sent an HTML page instead of the file (probably an error page); JS file main.js -> server sent an HTML page instead of the file (probably an error page)",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "DOWN",
-    "up": true
-  },
-  "Chef Marciano": {
-    "fails": 0,
-    "reason": "HTTP 200 in 0.3s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Dippin' Delights": {
-    "fails": 0,
-    "reason": "HTTP 200 in 4.9s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "E’s Kitchen": {
-    "fails": 0,
-    "reason": "HTTP 200 in 1.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "FL Employment": {
-    "fails": 1,
-    "reason": "Blank page: HTTP 202 but almost no visible content (0 characters of text, 167 bytes)",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "DOWN",
-    "up": true
-  },
-  "G1gGl3z": {
-    "fails": 1,
-    "reason": "Page HTML loads (HTTP 200 in 0.3s) but 2 required file(s) are broken, so visitors may see a blank/broken page: JS file jquery.min.js -> server sent an HTML page instead of the file (probably an error page); CSS file globalpayments-secure-payment-fields.css -> server sent an HTML page instead of the file (probably an error page)",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 38,
-    "ssl_warned": false,
-    "status": "DOWN",
-    "up": true
-  },
-  "Gladiator": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.3s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Glamma_Voice_Equity_Institute": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Glossy & Grace": {
-    "fails": 1,
-    "reason": "Blank page: HTTP 202 but almost no visible content (0 characters of text, 167 bytes)",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "DOWN",
-    "up": true
-  },
-  "H2H Logistics": {
-    "fails": 0,
-    "reason": "HTTP 200 in 1.4s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Huney Bees Studio": {
-    "fails": 0,
-    "reason": "HTTP 200 in 1.4s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Jada Aura Sculpture": {
-    "fails": 0,
-    "reason": "HTTP 200 in 1.0s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Jesawna_RYNÈA": {
-    "fails": 0,
-    "reason": "HTTP 200 in 2.1s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_checked": "2026-11-01",
-    "ssl_days_left": 50,
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "LexFit": {
-    "fails": 0,
-    "reason": "HTTP 200 in 5.7s",
-    "since": "2026-10-05 06:22 UTC",
-    "ssl_warned": false,
-    "status": "UP",
-    "up": true
-  },
-  "Massiahs Helping Hands": {
     "fails": 0,
     "reason": "HTTP 200 in 3.0s",
     "since": "2026-10-05 06:22 UTC",
@@ -205,9 +69,145 @@
     "status": "UP",
     "up": true
   },
+  "Chef Marciano": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.4s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Dippin' Delights": {
+    "fails": 0,
+    "reason": "HTTP 200 in 6.3s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "E’s Kitchen": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.5s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "FL Employment": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.8s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "G1gGl3z": {
+    "fails": 0,
+    "reason": "HTTP 200 in 3.0s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 38,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Gladiator": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.5s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Glamma_Voice_Equity_Institute": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.8s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Glossy & Grace": {
+    "fails": 0,
+    "reason": "HTTP 200 in 2.4s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "H2H Logistics": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.9s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Huney Bees Studio": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.8s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Jada Aura Sculpture": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.6s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Jesawna_RYNÈA": {
+    "fails": 0,
+    "reason": "HTTP 200 in 1.9s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "LexFit": {
+    "fails": 0,
+    "reason": "HTTP 200 in 7.7s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
+  "Massiahs Helping Hands": {
+    "fails": 0,
+    "reason": "HTTP 200 in 3.7s",
+    "since": "2026-10-05 06:22 UTC",
+    "ssl_checked": "2026-11-01",
+    "ssl_days_left": 50,
+    "ssl_warned": false,
+    "status": "UP",
+    "up": true
+  },
   "Maurissa Edible Queen": {
     "fails": 0,
-    "reason": "HTTP 200 in 3.1s",
+    "reason": "HTTP 200 in 1.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -216,18 +216,18 @@
     "up": true
   },
   "Mobby's Phillycheesesteak": {
-    "fails": 1,
-    "reason": "Page HTML loads (HTTP 200 in 2.3s) but 3 required file(s) are broken, so visitors may see a blank/broken page: JS file add-to-cart.min.js -> server sent an HTML page instead of the file (probably an error page); JS file js.cookie.min.js -> server sent an HTML page instead of the file (probably an error page); JS file woocommerce.min.js -> server sent an HTML page instead of the file (probably an error page)",
+    "fails": 0,
+    "reason": "HTTP 200 in 3.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 38,
     "ssl_warned": false,
-    "status": "DOWN",
+    "status": "UP",
     "up": true
   },
   "Mr. Fixture": {
     "fails": 0,
-    "reason": "HTTP 200 in 5.5s",
+    "reason": "HTTP 200 in 6.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_warned": false,
     "status": "UP",
@@ -235,7 +235,7 @@
   },
   "Ms. Garden & Co.": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.2s",
+    "reason": "HTTP 200 in 1.7s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 38,
@@ -245,7 +245,7 @@
   },
   "Nahkyla_Krownkutz": {
     "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
+    "reason": "HTTP 200 in 1.2s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -255,7 +255,7 @@
   },
   "Noah Homecare Services": {
     "fails": 0,
-    "reason": "HTTP 200 in 2.0s",
+    "reason": "HTTP 200 in 2.6s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -265,7 +265,7 @@
   },
   "Nyce Styles By Anya": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.7s",
+    "reason": "HTTP 200 in 1.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -274,18 +274,18 @@
     "up": true
   },
   "OTB": {
-    "fails": 1,
-    "reason": "Page HTML loads (HTTP 200 in 2.1s) but 6 required file(s) are broken, so visitors may see a blank/broken page: CSS file woocommerce-layout.css -> server sent an HTML page instead of the file (probably an error page); CSS file woocommerce.css -> server sent an HTML page instead of the file (probably an error page); JS file add-to-cart.min.js -> server sent an HTML page instead of the file (probably an error page); JS file js.cookie.min.js -> server sent an HTML page instead of the file (probably an error page); CSS file globalpayments-secure-payment-fields.css -> server sent an HTML page instead of the file (probably an error page)",
+    "fails": 0,
+    "reason": "HTTP 200 in 3.8s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 64,
     "ssl_warned": false,
-    "status": "DOWN",
+    "status": "UP",
     "up": true
   },
   "Pro Landscaping": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.2s",
+    "reason": "HTTP 200 in 1.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -295,7 +295,7 @@
   },
   "Shanna_hair by Shanna": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.4s",
+    "reason": "HTTP 200 in 1.3s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -305,7 +305,7 @@
   },
   "Shequilla Haircare _Crowned By Qui_": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.4s",
+    "reason": "HTTP 200 in 1.1s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -315,7 +315,7 @@
   },
   "Society Stays Collection": {
     "fails": 0,
-    "reason": "HTTP 200 in 1.0s",
+    "reason": "HTTP 200 in 1.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_warned": false,
     "status": "UP",
@@ -323,7 +323,7 @@
   },
   "Squeeaky Clean": {
     "fails": 0,
-    "reason": "HTTP 200 in 5.1s",
+    "reason": "HTTP 200 in 6.4s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
@@ -333,7 +333,7 @@
   },
   "Suds & Socials": {
     "fails": 0,
-    "reason": "HTTP 200 in 2.1s",
+    "reason": "HTTP 200 in 2.0s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 38,
@@ -343,7 +343,7 @@
   },
   "Union Transfer": {
     "fails": 0,
-    "reason": "HTTP 200 in 0.7s",
+    "reason": "HTTP 200 in 1.5s",
     "since": "2026-10-05 06:22 UTC",
     "ssl_checked": "2026-11-01",
     "ssl_days_left": 50,
